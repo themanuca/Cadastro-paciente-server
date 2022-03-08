@@ -67,5 +67,32 @@ module.exports = {
         const paciente = await Paciente.findByIdAndDelete({_id});
 
         return res.json(paciente);
+    },
+
+    async update(req, res){
+        const {
+            _id,
+            nome,
+            nascimento,
+            cpf,
+            sexo,
+            endereco,
+            status
+            } = req.body;
+
+            dadosPaciente = {
+                nome,
+                nascimento,
+                cpf,
+                sexo,
+                endereco,
+                status
+            };
+
+            const paciente = await Paciente.findByIdAndUpdate({_id}, dadosPaciente, {new:true});
+
+            return res.status(200).json({msg:"Paciente Atualizado com Sucesso"});
+
+
     }
 }

@@ -10,5 +10,6 @@ routes.post('/register/paciente',Paciente.create);
 routes.get('/detail/paciente/:_id', Paciente.detail)
 //Rota para deletar paciente
 routes.delete('/delete/paciente/:_id', Paciente.delete);
-
+//Rota para atulizar
+routes.put('/update/paciente/', Paciente.update);
 module.exports = routes;
