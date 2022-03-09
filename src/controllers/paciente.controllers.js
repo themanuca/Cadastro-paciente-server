@@ -21,11 +21,12 @@ module.exports = {
             if(!nome || !nascimento || !cpf || !sexo || !status) {
                 return  await res.status(405).json({msg:"Preencha todos os requisitos !"})
             }
-
+            
             let verficaPaciente = await Paciente.findOne({cpf}) //verificando se o CPF já está cadastrado
 
             if(verficaPaciente){
                 return res.status(405).json({msg:"CPF já cadastrado !"})
+
             }else{
 
                 let dadosPaciente = {}
